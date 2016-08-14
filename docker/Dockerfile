@@ -7,7 +7,14 @@ FROM tdmanville/devbase
 # Install js libraries.
 RUN apt-get update && \
     apt-get install -y nodejs npm && \
-    ln -s /usr/bin/nodejs /usr/bin/node 
+    ln -s /usr/bin/nodejs /usr/bin/node && \
+    npm install --save-dev react webpack \
+        webpack-bundle-tracker babel babel-loader babelify 
+
+
+RUN pip install django && \
+    pip install django-webpack-loader
+    #pip install djangorestframework 
 
 # Clean up APT when done.
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

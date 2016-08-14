@@ -4,16 +4,16 @@ spy
 ### Mac OS
 #### docker-machine
 https://docs.docker.com/machine/get-started/
-### Command
+### Commands
 #### Build
 ```
 docker build -t tom/spy .
 ```
-#### Run
+#### Run Docker Container
 ```
-docker run -p 42221:22 -p 42222:8888 -d --name hack tom/spy /sbin/my_init --enable-insecure-key
+docker run -p 42221:22 -p 42222:8888 -d --name spy tom/spy /sbin/my_init --enable-insecure-key
 ```
-#### Connect
+#### Configure SSH
 ```
 cat << EOF >> ~.ssh/config
 Host spy
@@ -24,10 +24,26 @@ Host spy
     Hostname localhost
 EOF
 ```
+#### Setup dir on host
 ```
-ssh spy
+ssh otherhost << EOF
+  mkdir ~/src;
+  cd ~/src;
+  git init
+  git checkout -b dummy
+EOF
+git push --set-upstream docker master
+```
+##### Run Django
+```
+python manage.py runserver 0.0.0:8888
 ```
 
+## Dev Notes
+### Setup Django
+https://realpython.com/learn/start-django/
 
+##### Setup Django + Webpack
+http://owaislone.org/blog/webpack-plus-reactjs-and-django/
 
 

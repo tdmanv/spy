@@ -1,0 +1,19 @@
+{
+  "name": "spy",
+  "version": "1.0.0",
+  "description": "spy ====== ## Docker ### Mac OS #### docker-machine https://docs.docker.com/machine/get-started/ ### Command #### Build ``` docker build -t tom/spy . ``` #### Run ``` docker run -p 42221:22 -p 42222:8888 -d --name hack tom/spy /sbin/my_init --enable-insecure-key ``` #### Connect ``` cat << EOF >> ~.ssh/config Host spy     IdentityFile ~/.ssh/insecure_key     Port 42221     ForwardAgent yes     User root     Hostname localhost EOF ``` ``` ssh spy ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babelify": "^7.3.0",
+    "react": "^15.3.0",
+    "webpack": "^1.13.1",
+    "webpack-bundle-tracker": "0.0.93"
+  }
+}
