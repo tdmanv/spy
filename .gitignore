@@ -4,3 +4,5 @@ assets/bundles/
 db.sqlite3
 node_modules/
 webpack-stats.json
+
+spy/migrations/*.py

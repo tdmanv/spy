@@ -24,7 +24,7 @@ Host spy
     Hostname localhost
 EOF
 ```
-#### Setup dir on host
+#### Setup Repo
 ```
 ssh otherhost << EOF
   mkdir ~/src;
@@ -33,6 +33,14 @@ ssh otherhost << EOF
   git checkout -b dummy
 EOF
 git push --set-upstream docker master
+```
+##### Initialize Server
+```
+cd ~/src
+npm install
+./node_modules/.bin/webpack --config webpack.config.js
+./manage.py makemigrations spy
+./manage.py migrate
 ```
 ##### Run Django
 ```
