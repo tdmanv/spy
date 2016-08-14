@@ -1,0 +1,6 @@
+*.py[cod]
+__pycache__/
+assets/bundles/
+db.sqlite3
+node_modules/
+webpack-stats.json
