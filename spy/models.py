@@ -12,6 +12,7 @@ class Player(models.Model):
     )
     name = models.CharField(max_length=200)
     role = models.IntegerField(default=0, choices=PLAYER_ROLES)
+    active = models.BooleanField(default=True)
 
 class Game(models.Model):
     GAME_STATE = (

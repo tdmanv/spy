@@ -13,8 +13,8 @@ RUN apt-get update && \
 
 
 RUN pip install django && \
-    pip install django-webpack-loader
-    #pip install djangorestframework 
+    pip install django-webpack-loader && \
+    pip install djangorestframework 
 
 # Clean up APT when done.
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

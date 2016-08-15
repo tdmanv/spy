@@ -50,8 +50,10 @@ python manage.py runserver 0.0.0:8888
 ## Dev Notes
 ### Setup Django
 https://realpython.com/learn/start-django/
-
-##### Setup Django + Webpack
+##### Django + Webpack
 http://owaislone.org/blog/webpack-plus-reactjs-and-django/
+##### Django REST
+http://www.django-rest-framework.org/tutorial/1-serialization/
+http://www.django-rest-framework.org/tutorial/2-requests-and-responses/
 
 
