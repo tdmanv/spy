@@ -26,7 +26,7 @@ EOF
 ```
 #### Setup Repo
 ```
-ssh otherhost << EOF
+ssh spy << EOF
   mkdir ~/src;
   cd ~/src;
   git init
@@ -34,26 +34,34 @@ ssh otherhost << EOF
 EOF
 git push --set-upstream docker master
 ```
-##### Initialize Server
+##### Setup Server
 ```
 cd ~/src
+git checkout master
 npm install
-./node_modules/.bin/webpack --config webpack.config.js
 ./manage.py makemigrations spy
 ./manage.py migrate
 ```
-##### Run Django
+##### Run Server
 ```
 python manage.py runserver 0.0.0:8888
+./node_modules/.bin/webpack --config webpack.config.js --watch
 ```
 
 ## Dev Notes
 ### Setup Django
 https://realpython.com/learn/start-django/
-##### Django + Webpack
+##### Django + Webpack + React
 http://owaislone.org/blog/webpack-plus-reactjs-and-django/
+http://stackoverflow.com/a/33460642
 ##### Django REST
 http://www.django-rest-framework.org/tutorial/1-serialization/
 http://www.django-rest-framework.org/tutorial/2-requests-and-responses/
+### JavaScript Setup
+#### Packages
+```
+npm install --save-dev react react-dom webpack webpack-bundle-tracker babel babel-loader babelify babel-preset-react
+```
+
 
 
