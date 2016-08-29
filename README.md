@@ -60,8 +60,9 @@ http://www.django-rest-framework.org/tutorial/2-requests-and-responses/
 ### JavaScript Setup
 #### Packages
 ```
-npm install --save-dev react react-dom webpack webpack-bundle-tracker babel babel-loader babelify babel-preset-react
+npm install --save-dev react react-dom webpack webpack-bundle-tracker babel babel-loader babelify babel-preset-react babel-polyfill
 ```
+and many more... checkout the package.json
 
 
 

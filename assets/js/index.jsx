@@ -1,7 +1,6 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+import 'babel-polyfill'
+import React from 'react'
+import { render } from 'react-dom'
 var App = require('./app')
 
-console.log(App)
-
-ReactDOM.render(<App/>, document.getElementById('react-app'))
+render(<App/>, document.getElementById('react-app'))
