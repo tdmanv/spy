@@ -5,7 +5,7 @@ const PlayerList = ({ players, onTodoClick }) => (
   <ul>
     {players.map(player =>
       <Player
-        key={player.id}
+        key={player.name}
         {...player}
         onClick={() => onTodoClick(player.id)}
       />

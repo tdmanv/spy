@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-const Player = ({ text }) => (
+const Player = ({ name }) => (
   <li> 
-  {text}
+  {name}
   </li>
 )
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import fetch from 'isomorphic-fetch'
+import { fetchPlayers } from '../actions'
 
 let _handleClick = () => {
 	fetch('/api/v1/player/')
@@ -11,10 +12,10 @@ let _handleClick = () => {
 		})
 }
 
-let PlayerList = ({ dispatch }) => {
+let FetchPlayer = ({ dispatch }) => {
 		return (<div onClick={_handleClick}>Fetch</div>)
 }
 
-//AddTodo = connect()(AddTodo)
+FetchPlayer = connect()(FetchPlayer)
 
 export default PlayerList
