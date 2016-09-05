@@ -9,12 +9,13 @@ const player = (state, action) => {
   }
 }
 
-const todos = (state = [], action) => {
+const players = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_PLAYERS':
-      return state.players.map(p =>
+      return action.players
+      /*return state.map(p =>
         player(p, action)
-      )
+      )*/
     case 'SET_CURRENT_PLAYER':
       return state //TODO
     default:
@@ -22,4 +23,4 @@ const todos = (state = [], action) => {
   }
 }
 
-export default todos
+export default players

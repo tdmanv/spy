@@ -11,4 +11,4 @@ const FetchedPlayerList = connect(
   mapStateToProps,
 )(PlayerList)
 
-export default FilterLink
+export default FetchedPlayerList 

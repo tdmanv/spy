@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react'
 import Player from './Player'
 
-const PlayerList = ({ players, onTodoClick }) => (
+const PlayerList = ({ players }) => (
   <ul>
     {players.map(player =>
       <Player
         key={player.name}
         {...player}
-        onClick={() => onTodoClick(player.id)}
       />
     )}
   </ul>

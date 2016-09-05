@@ -30,10 +30,10 @@ function requestPlayers() {
 }
 
 export const RECEIVE_PLAYERS = 'RECEIVE_PLAYERS'
-function receivePlayers(json) {
+function receivePlayers(players) {
   return {
     type: RECEIVE_PLAYERS,
-    players: json.data.children.map(child => child.data)
+    players: players
   }
 }
 
@@ -62,6 +62,7 @@ export const createPlayer = (name) => {
 }
 
 export const fetchPlayers = () => {
+  console.log("fetchPlayers")
   return (dispatch) => {
     dispatch(requestPlayers())
     return fetch('/api/v1/player/')
