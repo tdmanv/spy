@@ -68,38 +68,15 @@ export const fetchPlayers = () => {
     return fetch('/api/v1/player/')
       .then(response => response.json())
       .then(json => dispatch(receivePlayers(json)))
+      .then(
+        setTimeout(() => {
+          dispatch(fetchPlayers())
+        }, 2000)
+      )
 
       // In a real world app, you also want to
       // catch any error in the network call.
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

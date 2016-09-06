@@ -1,21 +1,16 @@
-const player = (state, action) => {
-  switch (action.type) {
-    case 'RECEIVE_PLAYERS':
-      return {
-        name: action.name,
-      }
-    default:
-      return state
-  }
+import { fetchPlayers } from '../actions'
+
+const initialState = {  
+  players: [],
+  isFetching: false
 }
 
-const players = (state = [], action) => {
+const players = (state = initialState, action) => {
   switch (action.type) {
+    case 'REQUEST_PLAYERS':
+      return { ...state, isFetchingPlayers: true }
     case 'RECEIVE_PLAYERS':
-      return action.players
-      /*return state.map(p =>
-        player(p, action)
-      )*/
+      return { players: action.players, isFetchingPlayers: false }
     case 'SET_CURRENT_PLAYER':
       return state //TODO
     default:

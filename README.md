@@ -63,6 +63,12 @@ http://www.django-rest-framework.org/tutorial/2-requests-and-responses/
 npm install --save-dev react react-dom webpack webpack-bundle-tracker babel babel-loader babelify babel-preset-react babel-polyfill
 ```
 and many more... check the package.json
+#### Using Spread Operator
+http://stefan.magnuson.co/articles/frontend/using-es7-spread-operator-with-webpack/
+#### Polling the Server
+http://notjoshmiller.com/ajax-polling-in-react-with-redux/
+
+
 
 
 
