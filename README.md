@@ -69,6 +69,22 @@ http://stefan.magnuson.co/articles/frontend/using-es7-spread-operator-with-webpa
 http://notjoshmiller.com/ajax-polling-in-react-with-redux/
 
 
+### Workflow
+Add Players
+Client: * PUT all players
+Client: * PUT game
+Client: * GET player roles
+
+Client (Single): * GET mission
+Client (Single): * POST mission w/ players
+Client: * POST mission with vote
+
+
+
+
+
+
+
 
 
 

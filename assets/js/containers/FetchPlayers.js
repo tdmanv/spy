@@ -6,15 +6,13 @@ import { fetchPlayers } from '../actions'
 
 let FetchPlayer = ({ dispatch }) => {
   let _handleClick = () => {
-    fetch('/api/v1/player/')
-      .then(function(response) {
-        response.json().then(function(json) {
-          console.log(json)
-        })
-      })
     dispatch(fetchPlayers())
   }
-	return (<div onClick={_handleClick}>Fetch</div>)
+	return (
+    <button onClick={_handleClick}>
+      Fetch Players
+    </button>
+  )
 }
 
 FetchPlayer = connect()(FetchPlayer)

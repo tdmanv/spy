@@ -45,7 +45,7 @@ function setCurrentPlayer(json) {
   }
 }
 
-export const createPlayer = (name) => {
+export const createPlayer = (name, game_id) => {
   return (dispatch) => {
     return fetch('/api/v1/player/', {
       method: 'post',  
@@ -53,7 +53,8 @@ export const createPlayer = (name) => {
       	"Content-type": "application/json; charset=UTF-8"  
       },  
 			body: JSON.stringify({
-				name: name
+				name: name,
+				game: game_id
 			})
     })
     .then(response => response.json())
@@ -61,18 +62,57 @@ export const createPlayer = (name) => {
   }
 }
 
-export const fetchPlayers = () => {
-  console.log("fetchPlayers")
+export const createGame = () => {
   return (dispatch) => {
+    return fetch('/api/v1/game/', {
+      method: 'post',  
+      headers: {  
+      	"Content-type": "application/json; charset=UTF-8"  
+      },  
+    })
+    .then(response => response.json())
+    .then(json => dispatch(setCurrentGame(json)))
+  }
+}
+
+export const SET_CURRENT_GAME = 'SET_CURRENT_GAME'
+function setCurrentGame(json) {
+  return {
+    type: SET_CURRENT_GAME,
+    game: json
+  }
+}
+
+export const startGame = (game_id) => {
+  return (dispatch) => {
+    return fetch(`/api/v1/games/${game_id}`, {
+      method: 'put',  
+      headers: {  
+      	"Content-type": "application/json; charset=UTF-8"  
+      },  
+			body: JSON.stringify({
+        state: 'CHOOSE_PARTICIPANTS'
+			})
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+  }
+}
+
+export const fetchPlayers = () => {
+  return (dispatch, getState) => {
     dispatch(requestPlayers())
     return fetch('/api/v1/player/')
       .then(response => response.json())
       .then(json => dispatch(receivePlayers(json)))
+      .then(console.log(getState()))
+      /*
       .then(
         setTimeout(() => {
           dispatch(fetchPlayers())
         }, 2000)
       )
+      */
 
       // In a real world app, you also want to
       // catch any error in the network call.

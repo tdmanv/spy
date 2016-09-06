@@ -3,7 +3,8 @@ import PlayerList from '../components/PlayerList'
 
 const mapStateToProps = (state) => {
   return {
-    players: state.players.players
+    players: state.players.players.filter(
+                 p => p.game == state.game.game.id)
   }
 }
 

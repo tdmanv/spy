@@ -4,6 +4,7 @@ import { createPlayer } from '../actions'
 
 let CreatePlayer = ({ dispatch }) => {
   let input
+  let game_id
 
   return (
     <div>
@@ -12,11 +13,15 @@ let CreatePlayer = ({ dispatch }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(createPlayer(input.value))
+        dispatch(createPlayer(input.value, +game_id.value))
         input.value = ''
+        game_id.value = ''
       }}>
         <input ref={node => {
           input = node
+        }} />
+        <input ref={node => {
+          game_id = node
         }} />
         <button type="submit">
           Join Game
