@@ -3,8 +3,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from spy.models import Player, Game
-from spy.serializers import PlayerSerializer, GameSerializer
+from spy.models import Player, Game, Mission
+from spy.serializers import PlayerSerializer, GameSerializer, MissionSerializer
 
 def index(request):
     template = 'spy/index.html'

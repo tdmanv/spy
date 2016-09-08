@@ -25,11 +25,19 @@ class Player(models.Model):
     #active = models.BooleanField(default=True)
 
 class Mission(models.Model):
+    def save(self, *args, **kwargs):
+        is_unsaved = (self.pk == None)
+        super(Mission, self).save(*args, **kwargs)
+        # We make our order 1 greater than the max for this game.
+        if is_unsaved:
+            self.order = max([m.owner for m in Mission.objects.all()])
+            self.save()
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    owner = models.ForeignKey(Player, on_delete=models.CASCADE)
-    number = models.IntegerField(default=0)
-    participants = models.IntegerField(default=2)
-    required = models.IntegerField(default=2)
+    owner = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True)
+    order = models.IntegerField(default=-1)
+    participants = models.IntegerField(default=0)
+    required = models.IntegerField(default=0)
     vote_yes = models.IntegerField(default=0)
     vote_no = models.IntegerField(default=0)
     outcome = models.IntegerField(default=-1)
+
