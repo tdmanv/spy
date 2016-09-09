@@ -8,10 +8,15 @@ class GameSerializer(serializers.ModelSerializer):
         fields = ('id', 'state')
 
 class PlayerSerializer(serializers.ModelSerializer):
-    game = GameSerializer(read_only=True)
+    game_id = serializers.IntegerField(default=-1)
     class Meta:
         model = Player
-        fields = ('id', 'name', 'game', 'role',)
+        fields = ('id', 'name', 'game_id', 'role',)
+
+    def create(self, validated_data):
+        game_id = validated_data.pop('game_id')
+        game = Game.objects.get(pk=game_id)
+        return Player.objects.create(game=game, **validated_data)
 
 class MissionSerializer(serializers.ModelSerializer):
     owner = PlayerSerializer(read_only=True)

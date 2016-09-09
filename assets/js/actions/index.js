@@ -47,14 +47,14 @@ function setCurrentPlayer(json) {
 
 export const createPlayer = (name, game_id) => {
   return (dispatch) => {
-    return fetch('/api/v1/player/', {
+    return fetch('/api/v1/players/', {
       method: 'post',  
       headers: {  
       	"Content-type": "application/json; charset=UTF-8"  
       },  
 			body: JSON.stringify({
 				name: name,
-				game: game_id
+				game_id: game_id
 			})
     })
     .then(response => response.json())
@@ -64,7 +64,7 @@ export const createPlayer = (name, game_id) => {
 
 export const createGame = () => {
   return (dispatch) => {
-    return fetch('/api/v1/game/', {
+    return fetch('/api/v1/games/', {
       method: 'post',  
       headers: {  
       	"Content-type": "application/json; charset=UTF-8"  
@@ -102,7 +102,7 @@ export const startGame = (game_id) => {
 export const fetchPlayers = () => {
   return (dispatch, getState) => {
     dispatch(requestPlayers())
-    return fetch('/api/v1/player/')
+    return fetch('/api/v1/players/')
       .then(response => response.json())
       .then(json => dispatch(receivePlayers(json)))
       .then(console.log(getState()))

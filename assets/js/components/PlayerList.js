@@ -5,7 +5,7 @@ const PlayerList = ({ players }) => (
   <ul>
     {players.map(player =>
       <Player
-        key={player.name}
+        key={player.id}
         {...player}
       />
     )}
