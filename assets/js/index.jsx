@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import todoApp from './reducers'
 import App from './components/App'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 let store = createStore(todoApp, applyMiddleware(thunkMiddleware))
 

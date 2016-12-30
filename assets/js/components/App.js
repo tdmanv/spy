@@ -9,10 +9,15 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 
 const App = () => (
   <div>
+    <h2>Game</h2>
+    <hr />
+    <CreateGame />
+    <hr />
+    <h2>Debug</h2>
+    <hr />
     <FetchPlayers />
     <br />
     <br />
-    <CreateGame />
     <FetchedPlayerList />
     <CreatePlayer />
     <br />

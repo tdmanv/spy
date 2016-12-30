@@ -15,7 +15,7 @@ docker run -p 42221:22 -p 42222:8888 -d --name spy tom/spy /sbin/my_init --enabl
 ```
 #### Configure SSH
 ```
-cat << EOF >> ~.ssh/config
+cat << EOF >> ~/.ssh/config
 Host spy
     IdentityFile ~/.ssh/insecure_key
     Port 42221
@@ -67,6 +67,9 @@ and many more... check the package.json
 http://stefan.magnuson.co/articles/frontend/using-es7-spread-operator-with-webpack/
 #### Polling the Server
 http://notjoshmiller.com/ajax-polling-in-react-with-redux/
+### HTML/CSS
+http://blog.theodybrothers.com/2015/07/how-to-use-bootstrap-css-only-and.html
+https://github.com/shakacode/bootstrap-loader/issues/6
 
 
 ### Workflow
